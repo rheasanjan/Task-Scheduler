@@ -11,13 +11,14 @@ html {
 }
 
 body {
-    background: #b1f6cb;
+    background-color: black;
     font-family: 'Open Sans',sans-serif;
 }
 /* super basic grid structure */
 .container {
-    width: 600px;
-    margin: 0 auto;
+    /* width: 600px; */
+    margin-top: 100px;
+    /* margin: 0 auto; */
     background: #ffffff;
     padding: 20px 0;
     -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
@@ -39,7 +40,8 @@ body {
 }
 
 .content {
-    background: #fff;
+  margin-top: 20px;
+  background: #fff;
 }
 
 /* logo */
@@ -63,7 +65,7 @@ h1 {
 
 /* inputs */
 .inputContainer {
-    height: 60px;
+    height: 80px;
     border-top: 1px solid #e5e5e5;
     position: relative;
     overflow: hidden;
@@ -176,16 +178,35 @@ button {
 
 .taskAdd {
     background: #444;
-    padding-left: 31px;
+    padding-left: 51px;
+    width: 250px;
+}
+.taskComplete {
+    background: green;
+    padding-left: 41px;
+    width: 200px;
+}
+.taskImp {
+  background: gold;
+  padding-left: 41px;
+  width: 250px;
 }
 
 .taskAdd:hover {
     background: #303030;
 }
+.taskAdd:hover {
+    background: #303030;
+}
+
+.taskComplete:hover {
+    background: #006600;
+}
 
 .taskDelete {
     background: #e74c3c;
-    padding-left: 30px;
+    padding-left: 40px;
+    width: 200px;
 }
 
 .taskDelete:hover {
@@ -195,15 +216,15 @@ button {
 /* task styles */
 .taskList {
     list-style: none;
-    padding: 0 20px;
+    padding: 0px 20px ;
 }
 
 .taskItem {
     border-top: 1px solid #e5e5e5;
-    padding: 15px 0;
+    padding: 25px 20px 20px;
     color: #777;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 0.5px;
 }
 
@@ -249,6 +270,27 @@ button {
     text-transform: uppercase;
     margin-right: 20px;
 }
+[class*='imp-True'] {
+    display: inline-block;
+    font-size: 10px;
+    background: #444;
+    vertical-align: middle;
+    color: #fff;
+    padding: 10px;
+    width: 75px;
+    text-align: center;
+    border-radius: 2px;
+    float: right;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+.imp-True {
+  background: gold;
+}
+.imp-False {
+  opacity: 0.0;
+}
 
 .category- {
     background: transparent;
@@ -258,15 +300,15 @@ button {
     background: #2980b9;
 }
 
-.category-Work {
-    background: #8e44ad;
+.category-work {
+    background: navy;
 }
 
 .category-School {
     background: #f39c12;
 }
 
-.category-Cleaning {
+.category-home {
     background: #16a085;
 }
 
