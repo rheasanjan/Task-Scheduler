@@ -2,16 +2,46 @@
 {% load static %}
 <html>
 <head>
-      <title>Django Girls blog</title>
+
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
-
 <body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#"> cup of tea </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menubar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menubar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href=#> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=#> Discover </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="createnew.html"> Create new </a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse right" id="menubar">
+      <ul class="navbar-nav navbar-right" >
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href=# id="navbardrop" data-toggle="dropdown"> Your profile </a>
+          <div class="dropdown-menu">
+            <a class = "dropdown-item" href=profile.htm> Go to your profile </a>
+            <a class="dropdown-item" href="edit.php"> Edit Profile </a>
+            <a class="dropdown-item" href="#"> Sign out </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <main>
     {% block content %}
     {% endblock %}

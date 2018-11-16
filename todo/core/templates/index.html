@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html >
 <head>
   <meta charset="UTF-8">
@@ -6,15 +8,41 @@
   {% load static %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-<div django-app="TaskManager">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#"> Prarambh </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menubar">
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="menubar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href= #> Add new task </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'display' %}"> View Pending tasks </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'completed' %}"> View Completed Tasks </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </nav>
+<!-- <div django-app="TaskManager"> -->
 	<div class="container">
+    <div class="col-md-12">
             <div class="content">
-            <h1>TodoApp</h1>
-            <p class="tagline">a Django todo app</p>
+            <h1>Prarambh</h1>
+            <p class="tagline">The secret of getting ahead is getting started.</p>
             <form action="" method="post">
             {% csrf_token %} <!-- csrf token for basic security -->
                 <div class="inputContainer">
@@ -35,29 +63,22 @@
                     <input type="date" id="dueDate" class="taskDate" name="date">
                     <label for="dueDate">Due Date</label>
                 </div>
+                <div class="inputContainer half last ">
+                    <input type="radio" id="imp" class="imp" name="imp" value="True">
+                    <label for="imp"> <span> Mark as Important </span> </label>
+                </div>
                 <div class="row">
                     <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
-                    <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+
                 </div>
 
 
-            <ul  class="taskList">
-            {% for todo in todos %} <!-- django template lang - for loop -->
-                <li class="taskItem">
-                    <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}">
-                    <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
-                    <span class="category-{{ todo.category }}">{{ todo.category }}</span>
-                    <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} - {{ todo.due_date }}</strong>
-                </li>
-            {% endfor %}
 
-
-            </ul><!-- taskList -->
             </form>
             </div><!-- content -->
-
- </div><!-- container -->
 </div>
+ </div><!-- container -->
+<!-- </div> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TodoApp - Django</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+   <body>
+     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+       <a class="navbar-brand" href="#"> Prarambh </a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menubar">
+         <span class="navbar-toggler-icon"> </span>
+       </button>
+       <div class="collapse navbar-collapse" id="menubar">
+         <ul class="navbar-nav">
+           <li class="nav-item">
+             <a class="nav-link" href=#> Add new task </a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'display' %}"> View Pending tasks </a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link active" href="{% url 'completed' %}"> View Completed Tasks </a>
+           </li>
+
+         </ul>
+       </div>
+
+     </nav>
+   <div django-app="TaskManager">
+   	<div class="container">
+
+
+               <div class="content">
+                 <h1> View Completed Tasks </h1>
+                  <form method="post">
+                    {%csrf_token %}
+                 <ul  class="taskList">
+                 {% for todo in todos %} <!-- django template lang - for loop -->
+                     <li class="taskItem">
+                         <!-- <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}"> -->
+                         <label for="{{ todo.id }}"><span>{{ todo.title }}</span></label>
+                         <span class="imp-{{ todo.important }}"> Important </span>
+
+                         <span class="category-{{ todo.category }}"> {{ todo.category }}</span>
+                         <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} - {{ todo.due_date }}</strong>
+                     </li>
+                 {% endfor %}
+
+
+                 </ul>
+                 <!-- <div class="row">
+                     <button class="taskComplete" name="taskComplete" type="submit"><i class="fa fa-check-square-o icon"></i> Completed</button>
+                     <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                 </div> -->
+                 <!-- taskList -->
+</form>
+                 </div><!-- content -->
+
+      </div><!-- container -->
+     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     </body>
+     </html>
