@@ -22,9 +22,10 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     # url('accounts/',include('django.contrib.auth.urls')),
     # url('conn', TemplateView.as_view(template_name='login.html'), name='login'),
-    url(r'^index', views.index, name="TodoList"),
+    url(r'^index', views.index, name="index"),
     url(r'^display',views.display,name="display"),
-    url(r'^completed', views.completed, name = 'completed')
+    url(r'^completed', views.completed, name = 'completed'),
+    url(r'^category', views.category, name = 'category')
 
     # url('new/',views.new,name="new"),
 ]
