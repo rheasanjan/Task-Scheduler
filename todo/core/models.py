@@ -17,7 +17,10 @@ class TodoList(models.Model):
     content = models.TextField(blank=True)
     created = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
+    completed = models.BooleanField(default=False)
     category = models.ForeignKey(Category,default="general")
+    important = models.BooleanField(default=False)
+    missed_deadline = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created"]
